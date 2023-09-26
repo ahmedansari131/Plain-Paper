@@ -23,7 +23,7 @@ class AuthService {
                 return userAccount;
             }
         } catch (error) {
-            throw error;
+            console.log("Error occurred while creating the new account ", error);
         }
     } 
 
@@ -31,7 +31,8 @@ class AuthService {
         try {
             return await this.account.createEmailSession(email, password);
         } catch (error) {
-            throw error;
+            console.log("Error occurred while login the user ", error);
+
         }
     }
 
@@ -39,7 +40,7 @@ class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            throw error;
+            console.log("Error occurred while getting the current user ", error);
         }
         return null;
     }
@@ -48,7 +49,8 @@ class AuthService {
         try {
             return await this.account.deleteSessions();
         } catch (error) {
-            throw error;
+            console.log("Error occurred while logging out the user ", error);
+
         }
     }
 }
